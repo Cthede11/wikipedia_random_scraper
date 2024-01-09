@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Scraper</title>
+</head>
+<body>
+    <h1>{{ page_title }}</h1>
+    <form action="/" method="post">
+        <label for="start_url">Enter URL:</label><br>
+        <input type="text" id="start_url" name="start_url"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <form action="/randomize" method="post">
+        <input type="submit" value="Randomize Page">
+    </form>
+    <form action="/navigate" method="get">
+        <input type="submit" value="Navigate to Current Page">
+    </form>
+</body>
+</html>
