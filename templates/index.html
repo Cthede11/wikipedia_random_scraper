@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Scraper</title>
+    <style>
+        body {
+            background-color: #333;  /* Dark gray background */
+            color: #fff;  /* White text */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Scraper</h1>
+    <form method="POST">
+        <label for="url">Enter a Wikipedia URL:</label><br>
+        <input type="text" id="url" name="url" value="{{ link }}"><br>
+        <input type="submit" value="Scrape">
+    </form>
+    <h2>Page Title:</h2>
+    <p>{{ title }}</p>
+    <form method="POST">
+        <input type="hidden" name="url" value="{{ link }}">
+        <input type="hidden" name="randomize" value="true">  <!-- Hidden field to distinguish this form -->
+        <input type="submit" value="Randomize">
+    </form>
+    <h2>Current Page:</h2>
+    <iframe src="{{ link }}" width="800" height="600"></iframe>
+</body>
+</html>
