@@ -21,11 +21,13 @@
     <h1>Web Scraper</h1>
     <form method="POST">
         <label for="url">Enter a Wikipedia URL:</label><br>
-        <input type="text" id="url" name="url" value="{{ link }}"><br>
+        <input type="text" id="url" name="url"><br>
         <input type="submit" value="Scrape">
     </form>
     <h2>Page Title:</h2>
     <p>{{ title }}</p>
+    <h2>Details:</h2>
+    <p>{{ details }}</p>
     <form method="POST">
         <input type="hidden" name="url" value="{{ link }}">
         <input type="hidden" name="randomize" value="true">
