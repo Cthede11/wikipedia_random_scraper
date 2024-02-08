@@ -27,7 +27,12 @@ def index():
 def get_links(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
-    links = [a['href'] for a in soup.find_all('a', href=True) if a['href'].startswith('/wiki/')]
+
+    content_div = soup.find('div', id='mw-content-text')
+
+    links = [a['href'] for a in content_div.find_all('a', href=True) if a['href'].startswith('/wiki/')
+        if a['href'].startswith('/wiki/') and ':' not in a['href']]
+    
     links = ['https://en.wikipedia.org' + link for link in links]
     random.shuffle(links)
     title = soup.find('title').text
