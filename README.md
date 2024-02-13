@@ -8,8 +8,7 @@ SETUP
 - click on that and it should open the scraper UI in your browser
 - from there, setup is complete, you may now use the scaper, hit CTRL + C in your terminal to terminate the program
 
-
-
+USING THE SCRAPER
 - As a user you will need to have the url of a wikipedia page to start from
 - Enter that url into the text box and hit the "scrape" button
 - From there the iframe below should navigate to the page you entered
