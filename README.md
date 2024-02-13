@@ -13,5 +13,5 @@ USING THE SCRAPER
 - Enter that url into the text box and hit the "scrape" button
 - From there the iframe below should navigate to the page you entered
 - After the iframe navigates to your page, you may hit the "randomize" button 
-    to follow a random link found in that article
+    to follow a random link found in that article. This is repeatable
     (You may also click a link in the iframe to follow a specific link)
