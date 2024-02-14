@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        body {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .column {
+            flex: 1;
+            margin: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .past-pages a{
+            color: white;
+        }
+    </style>
+
+    <script>
+        function navigateIframe(url) {
+            document.getElementById('wiki_display').src = url;
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <h1>|TEST Web Scraper|</h1>
+            <form method="POST">
+                <label for="url">Enter a Wikipedia URL:</label><br>
+                <input type="text" id="url" name="url">
+                <input type="submit" value="Scrape">
+            </form>
+            <h2>Page Title:</h2>
+            <p>{{ title }}</p>
+            <form method="POST">
+                <input type="hidden" name="url" value="{{ link }}">
+                <input type="hidden" name="randomize" value="true">
+                <input type="submit" value="Randomize">
+            </form>
+        </div>
+        <div class="column">
+            <h2>Past Pages</h2>
+            <ul class="past-pages">
+                {% for page in past_pages %}
+                <li><a href="#" onclick="navigateIframe('{{ page }}'); return false;">{{ page }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <h2>Current Page:</h2>
+            <iframe id="wiki_display" src="{{ link }}" width="100%" height="250%"></iframe>
+
+</body>
+</html>
