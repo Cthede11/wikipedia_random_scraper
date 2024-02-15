@@ -63,11 +63,14 @@
         </div>
         <div class="column">
             <h2>Past Pages</h2>
-            <ul class="past-pages">
-                {% for page in past_pages %}
-                <li><a href="#" onclick="navigateIframe('{{ page }}'); return false;">{{ page }}</a></li>
-                {% endfor %}
-            </ul>
+            <form method="POST">
+                <ul class="past-pages">
+                    {% for page in past_pages %}
+                    <li><a href="#" onclick="navigateIframe('{{ page }}'); return false;">{{ page }}</a></li>
+                    <input type="hidden" value ="Scrape" name="url" value="{{ page }}">
+                    {% endfor %}
+                </ul>
+            </form>
         </div>
     </div>
 

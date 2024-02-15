@@ -16,9 +16,13 @@ def index():
             links, _ = get_links(current_page)
             random_link = random.choice(links) if links else ''
             current_page = random_link
+
+        # add elif section to detect if a link in past pages was clicked
                 
         else:
             current_page = request.form.get('url')
+
+    past_pages = session.get('past_pages', [])
 
     # Fetch title after setting the new current_page
     if current_page:
@@ -26,11 +30,10 @@ def index():
         # Update the list of past pages
         past_pages = session.get('past_pages', [])
         past_pages.append(current_page)
-        session['past_pages'] = past_pages[-5:]  # Keep only the last 5 pages
+        session['past_pages'] = past_pages[-4:]  # Keep only the last 5 pages
     else:  # Watch for Empty URL
         title = 'Unknown or Missing Page Title'
 
-    past_pages = session.get('past_pages', [])
     return render_template('index.html', link=current_page, title=title, past_pages=past_pages)
 
 def get_links(url):
